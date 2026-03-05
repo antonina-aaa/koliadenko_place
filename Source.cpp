@@ -6,31 +6,70 @@ using namespace std;
 
 int main() {
 
-    // Філії
-    Store electronics("Electronics", "ELEC10");
-    Store clothes("Clothes", "CLOTH5");
+    Store petStore("Pet Store", "PET10");
+    Store gameStore("Game Store", "GAME5");
 
-    // Знижки
+    petStore.addProduct(Product("Dog Food", 500));
+    petStore.addProduct(Product("Cat Toy", 150));
+    petStore.addProduct(Product("Aquarium", 2000));
+
+    gameStore.addProduct(Product("Gamepad", 1200));
+    gameStore.addProduct(Product("Minecraft", 900));
+    gameStore.addProduct(Product("Headset", 1500));
+
+    int shopChoice;
+
+    cout << "====== SELF CHECKOUT ======\n";
+    cout << "1 - Pet Store\n";
+    cout << "2 - Game Store\n";
+    cin >> shopChoice;
+
+    Store* selectedStore;
+
+    if (shopChoice == 1)
+        selectedStore = &petStore;
+    else
+        selectedStore = &gameStore;
+
+    selectedStore->showProducts();
+
     PercentageDiscount percent10(10);
-    FixedDiscount minus100(100);
+    FixedDiscount minus50(50);
 
-    // Чек 1
-    Receipt receipt1(&percent10);
-    receipt1.addProduct(Product("Laptop", 20000));
-    receipt1.addProduct(Product("Mouse", 800));
+    Discount* discount = nullptr;
 
-    electronics.addReceipt(&receipt1);
+    string code;
+    cout << "\nEnter promo code: ";
+    cin >> code;
 
-    // Чек 2
-    Receipt receipt2(&minus100);
-    receipt2.addProduct(Product("Jacket", 3000));
-    receipt2.addProduct(Product("Shoes", 2500));
+    if (code == selectedStore->getPromoCode())
+        discount = &percent10;
 
-    clothes.addReceipt(&receipt2);
+    Receipt receipt(discount);
 
-    // Самокаса показує всі філії
-    electronics.showAllReceipts();
-    clothes.showAllReceipts();
+    int choice;
+    int quantity;
+
+    char more = 'y';
+
+    while (more == 'y') {
+
+        cout << "Choose product number: ";
+        cin >> choice;
+
+        cout << "Quantity: ";
+        cin >> quantity;
+
+        receipt.addProduct(
+            selectedStore->getProduct(choice - 1),
+            quantity
+        );
+
+        cout << "Add more products? (y/n): ";
+        cin >> more;
+    }
+
+    receipt.printReceipt();
 
     return 0;
 }

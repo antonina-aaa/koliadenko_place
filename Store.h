@@ -1,22 +1,23 @@
 #pragma once
+#include "Product.h"
 #include "Receipt.h"
-
-using namespace std;
 
 class Store {
 private:
     string name;
     string promoCode;
 
-    Receipt* receipts[100];   // максимум 100 чеків
-    int receiptCount;
+    Product products[10];
+    int productCount;
 
 public:
     Store(string name, string promoCode);
 
-    string getPromoCode() const;
-    string getName() const;
+    void addProduct(Product p);
+    void showProducts();
 
-    void addReceipt(Receipt* receipt);
-    void showAllReceipts();
+    Product getProduct(int index);
+
+    string getPromoCode();
+    string getName();
 };

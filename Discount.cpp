@@ -5,7 +5,7 @@ PercentageDiscount::PercentageDiscount(double percent) {
 }
 
 double PercentageDiscount::applyDiscount(double total) {
-    return total - (total * percent / 100.0);
+    return total - total * percent / 100;
 }
 
 FixedDiscount::FixedDiscount(double amount) {

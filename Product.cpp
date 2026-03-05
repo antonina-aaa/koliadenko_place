@@ -1,5 +1,4 @@
 #include "Product.h"
-#include "Store.h"
 
 Product::Product() {
     name = "";
