@@ -5,18 +5,18 @@ Receipt::Receipt(Discount* discount) {
     productCount = 0;
 }
 
-void Receipt::addProduct(Product product) {
-    if (productCount < 100) {
-        products[productCount] = product;
-        productCount++;
-    }
+void Receipt::addProduct(Product product, int quantity) {
+    products[productCount] = product;
+    quantities[productCount] = quantity;
+    productCount++;
 }
 
 double Receipt::calculateTotal() {
+
     double total = 0;
 
     for (int i = 0; i < productCount; i++) {
-        total += products[i].getPrice();
+        total += products[i].getPrice() * quantities[i];
     }
 
     if (discount != nullptr) {
@@ -27,15 +27,18 @@ double Receipt::calculateTotal() {
 }
 
 void Receipt::printReceipt() {
-    cout << "----- RECEIPT -----" << endl;
+
+    cout << "\n======= RECEIPT =======\n";
 
     for (int i = 0; i < productCount; i++) {
         cout << products[i].getName()
-            << " - "
-            << products[i].getPrice()
+            << " x" << quantities[i]
+            << " = "
+            << products[i].getPrice() * quantities[i]
             << endl;
     }
 
-    cout << "Total: " << calculateTotal() << endl;
-    cout << "-------------------" << endl << endl;
+    cout << "-----------------------\n";
+    cout << "TOTAL: " << calculateTotal() << endl;
+    cout << "=======================\n\n";
 }
