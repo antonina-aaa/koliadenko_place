@@ -1,23 +1,22 @@
 #pragma once
-#include "Product.h"
-#include "Receipt.h"
-
-class Store {
+#include<string>
+#include<iostream>
+using namespace std;
+class Store
+{
 private:
-    string name;
-    string promoCode;
-
-    Product products[10];
-    int productCount;
-
+	string name;
+	string promocode;
+	float discountprom;
+	int receiptnumber=1;
 public:
-    Store(string name, string promoCode);
+	Store(string n, string p, float d);
+	string Getname();
+	float Discount(double total, string Enterpromo);
+	int Getnextnumber();
 
-    void addProduct(Product p);
-    void showProducts();
 
-    Product getProduct(int index);
 
-    string getPromoCode();
-    string getName();
+
+
 };

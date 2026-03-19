@@ -1,21 +1,13 @@
 #pragma once
+#include<string>
+#include<iostream>
+#include<fstream>
 #include "Product.h"
-#include "Discount.h"
-#include <iostream>
 
 using namespace std;
-
-class Receipt {
-private:
-    Product products[100];
-    int quantities[100];
-    int productCount;
-    Discount* discount;
-
+class Receipt 
+{
 public:
-    Receipt(Discount* discount);
-
-    void addProduct(Product product, int quantity);
-    double calculateTotal();
-    void printReceipt();
+    static void generateReceipt(string GetStore, int receiptnumber, Product* Product[], int count, float total);
+    
 };

@@ -1,38 +1,25 @@
 #include "Store.h"
-#include <iostream>
 
-Store::Store(string name, string promoCode) {
-    this->name = name;
-    this->promoCode = promoCode;
-    productCount = 0;
+Store::Store(string n, string p, float d)
+{
+	name = n;
+	promocode = p;
+	discountprom = d;
+
 }
-
-void Store::addProduct(Product p) {
-    products[productCount] = p;
-    productCount++;
+float Store::Discount(double total, string Enterpromo)
+{
+	if (Enterpromo == promocode)
+	{
+		return total * (1 - discountprom / 100);
+	}
+	return total;
 }
-
-void Store::showProducts() {
-
-    cout << "\nProducts in " << name << endl;
-
-    for (int i = 0; i < productCount; i++) {
-        cout << i + 1 << ". "
-            << products[i].getName()
-            << " - "
-            << products[i].getPrice()
-            << endl;
-    }
+string Store::Getname()
+{
+	return name;
 }
-
-Product Store::getProduct(int index) {
-    return products[index];
-}
-
-string Store::getPromoCode() {
-    return promoCode;
-}
-
-string Store::getName() {
-    return name;
+int Store::Getnextnumber()
+{
+	return receiptnumber++;
 }

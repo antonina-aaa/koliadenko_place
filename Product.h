@@ -1,16 +1,20 @@
 #pragma once
-#include <string>
+#include<string>
+#include<iostream>
 using namespace std;
-
-class Product {
-private:
-    string name;
-    double price;
-
+class Product
+{
+protected:
+	string name;
+	float price;
 public:
-    Product();
-    Product(string name, double price);
+	Product(string n, float p);
+	virtual float Calculatediscountprice() = 0;
+	virtual string Gettype() = 0;
+	~Product(); 
+	string Getname();
+	float Getprice();
 
-    string getName() const;
-    double getPrice() const;
+
 };
+

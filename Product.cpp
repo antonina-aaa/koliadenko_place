@@ -1,19 +1,25 @@
 #include "Product.h"
+#include "Store.h"
 
-Product::Product() {
-    name = "";
-    price = 0;
+Product::Product(string n, float p)
+{
+	name = n;
+	price = p;
 }
 
-Product::Product(string name, double price) {
-    this->name = name;
-    this->price = price;
+Product::~Product()
+{
+	cout << "..." << endl;
 }
 
-string Product::getName() const {
-    return name;
+string Product::Getname()
+{
+	return name;
 }
 
-double Product::getPrice() const {
-    return price;
+
+
+float Product::Getprice()
+{
+	return price;
 }
