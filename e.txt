@@ -1,0 +1,5 @@
+Summed numbers:
+107
+97
+134
+25
