@@ -70,6 +70,6 @@ int main() {
     }
 
     receipt.printReceipt();
-
+    system("success.wav");
     return 0;
 }
