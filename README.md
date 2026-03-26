@@ -16,10 +16,8 @@
 * **Вибір локації:** Робота з асортиментом **Pet Store** та **Game Store**.
 * **Smart Cart:** Динамічне додавання товарів, перевірка залишків та формування чека.
 * **Discount System:** Логіка застосування промокодів для автоматичного перерахунку `totalPrice`.
-* **Audio UI:** Відтворення звуку успішної оплати (`success.wav`) за допомогою Windows Multimedia API.
+* **Audio UI:** Відтворення звуку успішної оплати (`success.wav`).
 
 ```cpp
 // Реалізація звукового супроводу
-#include <windows.h>
-#pragma comment(lib, "winmm.lib")
-PlaySound(TEXT("success.wav"), NULL, SND_FILENAME | SND_ASYNC);
+system("назва_музичного_файлу.його_розширення");
