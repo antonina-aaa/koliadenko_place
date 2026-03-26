@@ -57,9 +57,7 @@
 ## 🛠 Технічні вимоги та налаштування
 
 1.  **Середовище:** Visual Studio 2022, стандарт **C++17**.
-2.  **Залежності:** Пакет `nlohmann.json` (встановити через NuGet).
-3.  **Налаштування звуку:** Для роботи `PlaySound` необхідно підключити `winmm.lib`:
-    * *Project Properties -> Linker -> Input -> Additional Dependencies -> додати `winmm.lib`*.
+2.  **Залежності:** Пакет `nlohmann.json.
 
 ---
 
