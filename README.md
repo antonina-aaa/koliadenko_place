@@ -5,7 +5,7 @@
 ![Library](https://img.shields.io/badge/Library-nlohmann--json-orange.svg)
 ![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen.svg)
 
-![Project Preview](prewiew.webp)
+                                            ![Project Preview](prewiew.webp)
 
 **Koliadenko Place** — це інтегроване середовище розробки, що поєднує систему автоматизованого продажу (Self-Checkout) та науково-дослідний модуль для обробки великих масивів даних.
 
