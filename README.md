@@ -1,11 +1,11 @@
 # 🛒 Koliadenko Place: Multi-Module C++ Workspace
 
-![Project Preview](prewiew.webp)
-
 ![C++](https://img.shields.io/badge/C%2B%2B-17-blue.svg)
 ![IDE](https://img.shields.io/badge/IDE-Visual_Studio_2022-purple.svg)
 ![Library](https://img.shields.io/badge/Library-nlohmann--json-orange.svg)
 ![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen.svg)
+
+![Project Preview](prewiew.webp)
 
 **Koliadenko Place** — це інтегроване середовище розробки, що поєднує систему автоматизованого продажу (Self-Checkout) та науково-дослідний модуль для обробки великих масивів даних.
 
