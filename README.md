@@ -1,72 +1,73 @@
 # 🛒 Koliadenko Place: Multi-Module C++ Workspace
 
-![C++](https://img.shields.io/badge/C++-17-blue.svg)
+![C++](https://img.shields.io/badge/C%2B%2B-17-blue.svg)
 ![IDE](https://img.shields.io/badge/IDE-Visual_Studio_2022-purple.svg)
+![Library](https://img.shields.io/badge/Library-nlohmann--json-orange.svg)
 ![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen.svg)
-![JSON](https://img.shields.io/badge/Library-nlohmann--json-orange.svg)
 
-Ласкаво просимо до **Koliadenko Place** — інтегрованого середовища розробки, яке поєднує прикладну систему самообслуговування та науково-дослідний модуль обробки даних.
+**Koliadenko Place** — це інтегроване середовище розробки, що поєднує систему автоматизованого продажу (Self-Checkout) та науково-дослідний модуль для обробки великих масивів даних.
 
 ---
 
-## 🏬 Модуль 1: Self-Checkout System (Гілка `Store-Zhovkva`)
-*Симуляція касового термінала для магазинів різних типів.*
+## 📂 Структура проєкту (Гілки Git)
+
+Проєкт має розгалужену структуру. Використовуйте `git checkout [назва_гілки]`, щоб перемикатися між модулями:
+
+1.  **`Store-Zhovkva`** — Модуль магазину та аудіо-інтерфейсу.
+2.  **`jason+vector` / `dz_json_Tanya`** — Робота з JSON та алгоритмами обробки векторів.
+3.  **`dz2_unitTest_Tanya`** — Автоматизовані юніт-тести.
+
+---
+
+## 🏬 Модуль 1: Self-Checkout System
+*Симуляція касового термінала для різних типів магазинів.*
 
 **Ключові особливості:**
-* **Вибір локації:** Робота з асортиментом **Pet Store** та **Game Store**.
-* **Smart Cart:** Динамічне додавання товарів, перевірка залишків та формування чека.
-* **Discount System:** Логіка застосування промокодів для автоматичного перерахунку `totalPrice`.
-* **Audio UI:** Відтворення звуку успішної оплати (`success.wav`).
+* **Локації:** Підтримка асортименту для **Pet Store** та **Game Store**.
+* **Smart Cart:** Динамічне додавання товарів, перевірка залишків та формування фінального чека.
+* **Discount System:** Логіка промокодів для автоматичного перерахунку вартості.
+* **Audio UI:** Звукове підтвердження оплати (`success.wav`) через Windows Multimedia API.
 
-```cpp
-// Реалізація звукового супроводу
-system("назва_музичного_файлу.його_розширення");
-## 🧬 Модуль 2: Data Research & Vector Lab (Гілки jason+vector, dz_json_Tanya)
-Модуль для глибокої роботи з масивами даних, файловою системою та JSON.
+---
 
-📊 Алгоритми (vector.h):
-Custom Sorting: Власна реалізація sortAsc (за зростанням) та sortDesc (за спаданням).
+## 🧬 Модуль 2: Data Research & Vector Lab
+*Аналітичний модуль для обробки числових даних та серіалізації.*
 
-Duplicate Handler: Функція removeDuplicates для очищення масивів та printDifference для аналізу повторів.
+📊 **Алгоритми (vector.h):**
+* **Custom Sorting:** Власна реалізація `sortAsc` (зростання) та `sortDesc` (спадання).
+* **Duplicate Handler:** Очищення масивів від повторів (`removeDuplicates`) та аналіз різниці між векторами.
+* **Math Logic:** Групування елементів та розрахунок контрольних сум.
 
-Math Logic: Розрахунок сум груп елементів та обчислення різниці між оригінальним та відфільтрованим векторами.
+📄 **Робота з файлами:**
+* Генерація файлу `numbers.txt` з **1000 випадковими числами**.
+* Експорт результатів (суми, вектори, статистика) у структурований формат `data.json`.
 
-📄 Обмін даними (JSON & Files):
-Генерація: Автоматичне створення numbers.txt з 1000 випадковими числами.
+---
 
-Serialization: Експорт результатів (суми, кількість дублікатів, вектори V1 та V2) у структурований файл data.json.
+## 🧪 Модуль 3: QA & Unit Testing
+*Набір тестів на базі Microsoft Native Unit Test Framework.*
 
-## 🧪 Модуль 3: QA & Unit Testing (Гілка dz2_unitTest_Tanya)
-Набір автоматизованих тестів для перевірки надійності коду.
+* **Sorting Test:** Валідація алгоритмів сортування.
+* **Sum Test:** Точність математичних обчислень.
+* **Unique Test:** Перевірка цілісності даних після видалення дублікатів.
+* **JSON Test:** Перевірка коректності запису об'єктів `nlohmann`.
 
-Використовується Microsoft Native Unit Test Framework. Основні перевірки:
+---
 
-Sorting Test: Валідація правильного порядку після виконання сортування.
+## 🛠 Технічні вимоги та налаштування
 
-Sum Test: Перевірка точності математичних обчислень у функціях вектора.
+1.  **Середовище:** Visual Studio 2022, стандарт **C++17**.
+2.  **Залежності:** Пакет `nlohmann.json` (встановити через NuGet).
+3.  **Налаштування звуку:** Для роботи `PlaySound` необхідно підключити `winmm.lib`:
+    * *Project Properties -> Linker -> Input -> Additional Dependencies -> додати `winmm.lib`*.
 
-Unique Test: Контроль коректності видалення дублікатів (чи не втрачаються дані).
+---
 
-JSON Test: Перевірка цілісності даних при роботі з об'єктами бібліотеки nlohmann.
+## 🏗 Як запустити
 
-🛠 Технічні вимоги та налаштування
-1. Середовище розробки
-IDE: Visual Studio 2022.
+```bash
+# Клонувати репозиторій
+git clone [https://github.com/ваш-юзернейм/koliadenko-place.git](https://github.com/ваш-юзернейм/koliadenko-place.git)
 
-Стандарт: C++17 або новіше.
-
-2. Залежності
-JSON: Встановіть пакет nlohmann.json через NuGet.
-
-Audio: Для роботи звуку додайте winmm.lib у властивості проєкту:
-
-Project Properties -> Linker -> Input -> Additional Dependencies.
-
-3. Робота з гілками
-Проєкт має розгалужену структуру. Використовуйте git checkout для переходу між модулями:
-
-Store-Zhovkva — Магазин та звуки.
-
-jason+vector / dz_json_Tanya — Робота з JSON та алгоритмами.
-
-dz2_unitTest_Tanya — Юніт-тести.
+# Перейти на гілку з магазином(до прикладу)
+git checkout Store-Zhovkva
