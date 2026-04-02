@@ -73,10 +73,10 @@ Your choice: 5
 Hoodie - $35
 Your choice: 0
 
-Enter promo code (or 'no'): SALE30
-Invalid promo code!
+Enter promo code (or 'no'): SALE20
+Promo -20% applied!
 
-TOTAL: $234
+TOTAL: $187.2
 ```
 
 ## 🛠 Технології та інструменти
