@@ -48,21 +48,35 @@
 ## 💻 Приклад роботи
 
 ```text
-Enter date (dd.mm): 02.03
-Discount product: T-shirt (-10%)
+Enter date: 09.09
 
-1. T-shirt - $20 (-10% TODAY!)
+=== TODAY'S DISCOUNT ===
+Discount product: Sneakers (-10%)
+
+=== STORE ===
+1. T-shirt - $20
 2. Jeans - $45
 3. Jacket - $80
-4. Sneakers - $60
+4. Sneakers - $60 (-10% TODAY!)
 5. Hoodie - $35
 
+Choose item (0 to finish)
 Your choice: 1
-Day discount applied! T-shirt - $18
+T-shirt - $20
+Your choice: 2
+Jeans - $45
+Your choice: 3
+Jacket - $80
+Your choice: 4
+Day discount applied! Sneakers - $54
+Your choice: 5
+Hoodie - $35
+Your choice: 0
 
-Enter promo code: SALE10
+Enter promo code (or 'no'): SALE30
+Invalid promo code!
 
-TOTAL: $16.2
+TOTAL: $234
 ```
 
 ## 🛠 Технології та інструменти
